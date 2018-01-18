@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://omed.surge.sh",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "kilip-coreui-react": "^1.0.8",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0",
+    "simple-line-icons": "^2.4.1"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "rs-start": "react-scripts start",
+    "rs-build": "react-scripts build",
+    "start": "npm-run-all -p watch-css rs-start",
+    "build": "npm-run-all -p build-css rs-build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {}
+}
