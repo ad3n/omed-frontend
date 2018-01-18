@@ -12,3 +12,11 @@ install: true
 script:
     - npm install
     - npm test
+
+before_deploy:
+    - npm build
+
+deploy:
+    provider: surge
+    project: ./build/
+    domain: omed.surge.sh
