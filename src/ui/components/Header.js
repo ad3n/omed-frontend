@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {
-  Nav,
-  NavItem,
   NavbarToggler,
   NavbarBrand,
 } from 'reactstrap';
