@@ -3,6 +3,7 @@ node_js:
     - 8
     - 9
 cache:
+    yarn: true
     directories:
         - node_modules
         - packages/create-react-app/node_modules
@@ -10,13 +11,13 @@ cache:
 
 install: true
 script:
-    - npm install
-    - npm test
+    - yarn install
+    - yarn test
 
 before_deploy:
-    - npm build
+    - yarn build
 
 deploy:
     provider: surge
-    project: ./build/
+    project: ./build
     domain: omed.surge.sh
