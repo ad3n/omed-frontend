@@ -1,3 +1,4 @@
+
 export default {
     items: [
         {
@@ -10,14 +11,14 @@ export default {
             }
         },
         {
-            name: "Products",
-            url: '/products',
-            icon: 'icon-folder-alt',
-        },
-        {
-            name: "Login",
-            url: '/login',
-            icon: 'icon-key',
-        },
+            name: "Employees",
+            url: '/employees',
+            icon: 'icon-people',
+        }
+        //{
+        //    name: "Products",
+        //    url: '/products',
+        //    icon: 'icon-folder-alt',
+        //},
     ]
 };

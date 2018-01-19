@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {Container} from 'reactstrap';
+import { connect } from 'react-redux';
 
 import Header from './components/Header';
 import Breadcrumb from './components/Breadcrumb';
@@ -8,11 +9,11 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Dashboard from '../views/Dashboard';
 import Products from '../views/Products';
-
-export default class DashboardContainer extends Component {
+//import Employees from '../components/employees/List';
+import EmployeeRoutes from '../components/employees/routes';
+class DashboardContainer extends Component {
 
     render(){
-
         return (
             <div className="app">
                 <Header/>
@@ -24,6 +25,7 @@ export default class DashboardContainer extends Component {
                             <Switch>
                                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
                                 <Route path="/products" name="Products" component={Products}/>
+                                {EmployeeRoutes}
                                 <Redirect from="/" to="/dashboard"/>
                             </Switch>
                         </Container>
@@ -34,3 +36,11 @@ export default class DashboardContainer extends Component {
         );
     }
 }
+
+function mapStateToProps(state,logout){
+    return {
+        user: state.user,
+        logout: state.logout
+    };
+}
+export default connect(mapStateToProps)(DashboardContainer);
