@@ -2,6 +2,7 @@ import * as constants from './constants';
 import axios from 'axios';
 import {USER_LOGGED_IN} from "./constants";
 import { decodeToken } from './util';
+import * as globals from '../../config/global';
 
 /*export const login = data => dispatch => {
   dispatch({
@@ -16,8 +17,6 @@ import { decodeToken } from './util';
   }, 2000)
 };*/
 
-const ROOT_URL = 'http://localhost/login_check';
-
 export function login(data){
     return function(dispatch){
         const config = {
@@ -27,7 +26,7 @@ export function login(data){
             },
             json: true
         };
-        axios.post(ROOT_URL,JSON.stringify(data),config)
+        axios.post(globals.API_LOGIN_CHECK,JSON.stringify(data),config)
             .then(response => {
                 const token = response.data.token;
                 const payload = decodeToken(token);
